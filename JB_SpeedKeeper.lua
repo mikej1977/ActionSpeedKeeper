@@ -55,10 +55,11 @@ function ActionSpeedKeeper:KeepSpeed()
             end
         end
 
-        for _, condition in ipairs(self.stopConditions) do
+        for i = 1, #self.stopConditions do
+            local condition = self.stopConditions[i]
             if condition(self.playerObj) then
                 self:resetGameSpeed()
-                return
+            return
             end
         end
 
